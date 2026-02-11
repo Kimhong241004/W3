@@ -73,71 +73,11 @@ class ButtonTestScreen extends StatelessWidget {
                 );
               },
             ),
-
-            const SizedBox(height: 16),
-
-            BlaButton(
-              text: 'Primary without icon',
-              type: ButtonType.primary,
-              onPressed: () {
-                showModalBottomSheet<void>(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Container(
-                      height: 100,
-                      color: Colors.blueAccent,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            const Text('Primary without icon'),
-                            ElevatedButton(
-                              child: const Text('Close'),
-                              onPressed: () => Navigator.pop(context),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
-
-            const SizedBox(height: 16),
-
-            BlaButton(
-              text: 'Secondary without icon',
-              type: ButtonType.secondary,
-              onPressed: () {
-                showModalBottomSheet<void>(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Container(
-                      height: 100,
-                      color: Colors.blueAccent,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            const Text('Secondary without icon'),
-                            ElevatedButton(
-                              child: const Text('Close'),
-                              onPressed: () => Navigator.pop(context),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
           ],
         ),
       ),
     );
   }
 }
+      
+
