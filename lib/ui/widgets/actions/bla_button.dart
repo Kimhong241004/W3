@@ -20,13 +20,14 @@ class BlaButton extends StatelessWidget {
     this.icon,
   });
 
-  Color get buttonColor => type == ButtonType.primary ? BlaColors.primary : BlaColors.white;
+  Color get buttonColor =>
+      type == ButtonType.primary ? BlaColors.primary : BlaColors.white;
 
-  Color get textColor => type == ButtonType.primary ? BlaColors.white : BlaColors.primary;
+  Color get textColor =>
+      type == ButtonType.primary ? BlaColors.white : BlaColors.primary;
 
   @override
   Widget build(BuildContext context) {
-    
     return SizedBox(
       width: double.infinity,
       height: 56,

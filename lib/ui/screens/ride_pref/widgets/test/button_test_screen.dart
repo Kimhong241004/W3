@@ -41,9 +41,7 @@ class ButtonTestScreen extends StatelessWidget {
                 );
               },
             ),
-
             const SizedBox(height: 16),
-
             BlaButton(
               text: 'Request to book',
               icon: Icons.calendar_today_rounded,
@@ -79,5 +77,3 @@ class ButtonTestScreen extends StatelessWidget {
     );
   }
 }
-      
-
