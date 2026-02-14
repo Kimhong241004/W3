@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../../../model/ride/locations.dart';
 import '../../../../model/ride_pref/ride_pref.dart';
 import '../../../../utils/date_time_utils.dart';
 import '../../../theme/theme.dart';
+import '../../../widgets/actions/bla_button.dart';
 import '../../../../data/dummy_data.dart';
 
 ///
@@ -35,9 +35,9 @@ class _RidePrefFormState extends State<RidePrefForm> {
   late Location? arrival;
   late int requestedSeats;
 
-  // ----------------------------------
+
   // Initialize the Form attributes
-  // ----------------------------------
+
 
   @override
   void initState() {
@@ -57,9 +57,9 @@ class _RidePrefFormState extends State<RidePrefForm> {
     }
   }
 
-  // ----------------------------------
+
   // Handle events
-  // ----------------------------------
+
 
   /// Handle departure location selection
   void _selectDeparture() async {
@@ -173,9 +173,9 @@ class _RidePrefFormState extends State<RidePrefForm> {
     );
   }
 
-  // ----------------------------------
+
   // Build helper widgets
-  // ----------------------------------
+
 
   /// Build location input field
   Widget _buildLocationInput({
@@ -300,25 +300,16 @@ class _RidePrefFormState extends State<RidePrefForm> {
 
   /// Build search button
   Widget _buildSearchButton() {
-    return ElevatedButton(
+    return BlaButton(
+      text: 'Search',
       onPressed: _submitForm,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: BlaColors.primary,
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(BlaSpacings.radius),
-        ),
-      ),
-      child: Text(
-        'Search',
-        style: BlaTextStyles.button.copyWith(color: Colors.white),
-      ),
+      type: ButtonType.primary,
     );
   }
 
-  // ----------------------------------
+
   // Build the main widget
-  // ----------------------------------
+ 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
