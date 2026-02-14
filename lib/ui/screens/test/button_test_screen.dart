@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../widgets/actions/bla_button.dart';
+import 'package:week_3_blabla_project/ui/widgets/actions/bla_button.dart';
 
 class ButtonTestScreen extends StatelessWidget {
   const ButtonTestScreen({Key? key}) : super(key: key);
@@ -7,6 +7,9 @@ class ButtonTestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Button Test'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(

@@ -1,5 +1,5 @@
-import 'package:blabla/model/ride_pref/ride_pref.dart';
-import 'package:blabla/services/ride_prefs_service.dart';
+import '../../../model/ride_pref/ride_pref.dart';
+import '../../../services/ride_prefs_service.dart';
 import 'package:flutter/material.dart';
 import '../../theme/theme.dart';
 import 'widgets/ride_prefs_form.dart';
@@ -19,45 +19,58 @@ class RidePrefsScreen extends StatelessWidget {
     // TODO
   }
 
+  void _handleFormSubmit(RidePref ridePref) {
+    // Save the preference to history
+    RidePrefsService.ridePrefsHistory.add(ridePref);
+    RidePrefsService.selectedRidePref = ridePref;
+    // TODO: Navigate to search results screen with the selected preference
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(children: [_buildBackground(), _buildForeground()]);
   }
 
   Widget _buildForeground() {
-    return Column(
-      children: [
-        // 1 - THE HEADER
-        SizedBox(height: 16),
-        Align(
-          alignment: AlignmentGeometry.center,
-          child: Text(
-            "Your pick of rides at low price",
-            style: BlaTextStyles.heading.copyWith(color: Colors.white),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          // 1 - THE HEADER
+          SizedBox(height: 16),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "Your pick of rides at low price",
+              style: BlaTextStyles.heading.copyWith(color: Colors.white),
+            ),
           ),
-        ),
-        SizedBox(height: 100),
+          SizedBox(height: 100),
 
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: BlaSpacings.xxl),
-          decoration: BoxDecoration(
-            color: Colors.white, // White background
-            borderRadius: BorderRadius.circular(16), // Rounded corners
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // 2 - THE FORM
-              RidePrefForm(initRidePref: RidePrefsService.selectedRidePref),
-              SizedBox(height: BlaSpacings.m),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: BlaSpacings.xxl),
+            decoration: BoxDecoration(
+              color: Colors.white, // White background
+              borderRadius: BorderRadius.circular(16), // Rounded corners
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // 2 - THE FORM
+                RidePrefForm(
+                  initRidePref: RidePrefsService.selectedRidePref,
+                  onSubmit: _handleFormSubmit,
+                ),
+                SizedBox(height: BlaSpacings.m),
 
-              // 3 - THE HISTORY
-              _buildHistory(),
-            ],
+                // 3 - THE HISTORY
+                _buildHistory(),
+              ],
+            ),
           ),
-        ),
-      ],
+          SizedBox(height: BlaSpacings.l),
+        ],
+      ),
     );
   }
 
